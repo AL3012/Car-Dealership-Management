@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/view_car"
+            android:icon="@drawable/ic_car_black_24dp"
+            android:title="@string/view_car"/>
+        <item
+            android:id="@+id/add_emp"
+            android:icon="@drawable/ic_person_add_black_24dp"
+            android:title="@string/add_new_employee" />
+        <item
+            android:id="@+id/add_car"
+            android:icon="@drawable/ic_car_black_24dp"
+            android:title="@string/add_car" />
+        <item
+            android:id="@+id/update_car"
+            android:icon="@drawable/ic_edit_black_24dp"
+            android:title="@string/update_car_details" />
+        <item
+            android:id="@+id/add_buyer"
+            android:icon="@drawable/ic_face_black_24dp"
+            android:title="@string/add_buyer_details"/>
+        <item
+            android:id="@+id/sales_report"
+            android:icon="@drawable/ic_file_black_24dp"
+            android:title="@string/generate_sales_report"/>
+    </group>
+</menu>

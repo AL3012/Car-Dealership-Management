@@ -70,10 +70,25 @@
                 android:background="@android:color/white"
                 android:hint="@string/username"
                 android:inputType="textPersonName"
-                android:padding="@dimen/padding_large"
+                android:paddingTop="@dimen/padding_large"
+                android:paddingLeft="@dimen/padding_large"
+                android:paddingRight="@dimen/padding_large"
                 android:singleLine="true"
                 android:textSize="@dimen/text_size_xxxlarge" />
         </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/ForgotTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="end"
+            android:paddingBottom="@dimen/padding_large"
+            android:layout_marginEnd="@dimen/margin_xxlarge"
+            android:text="@string/forgot_password"
+            android:textColor="#C0C0C0"
+            android:textSize="@dimen/text_size_xlarge" />
 
         <Button
             android:id="@+id/loginBtn"
@@ -82,32 +97,8 @@
             android:layout_margin="32dp"
             android:background="@drawable/buttonstyle"
             android:text="@string/button"
-            android:textColor="@android:color/white"
+            android:textColor="#000000"
             android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/ForgotTv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:padding="@dimen/padding_large"
-            android:text="@string/forgot_password"
-            android:textColor="#C0C0C0"
-            android:textSize="@dimen/text_size_xlarge" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:padding="@dimen/padding_xlarge"
-            android:text="@string/sign_up"
-            android:textColor="#C0C0C0"
-            android:textSize="@dimen/text_size_xlarge" />
 
     </LinearLayout>
 

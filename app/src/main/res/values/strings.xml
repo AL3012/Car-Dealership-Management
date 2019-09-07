@@ -30,4 +30,19 @@
     <string name="add_new_employee">Add New Employee</string>
     <string name="view_car">View Car</string>
     <string name="logout">Logout</string>
+    <string name="add_new_employee">Add New Employee</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="mobile_no">Mobile Number</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="gender">Gender</string>
+    <string name="city">City</string>
+    <string name="pin_code">Pincode</string>
+    <string name="add_employee_button">Add Employee</string>
+    <string name="calendar_icon">Calendar Icon</string>
+    <string name="about">About</string>
 </resources>

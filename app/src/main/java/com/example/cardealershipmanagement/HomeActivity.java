@@ -1,5 +1,6 @@
 package com.example.cardealershipmanagement;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -23,14 +24,14 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -80,15 +81,18 @@ public class HomeActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.view_car) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.add_emp) {
+            Intent intent = new Intent(HomeActivity.this, NewEmployeeActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.add_car) {
 
-        } else if (id == R.id.nav_tools) {
+        } else if (id == R.id.update_car) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.add_buyer) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.sales_report) {
 
         }
 

@@ -16,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText UsernameEt, PasswordEt;
     private TextView forgot, register;
-    DBHelper dbHelper;
+    /*DBHelper dbHelper;*/
     private Button loginBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 }
 
 private void performLogin() {
-        Cursor cursor = dbHelper.getDataFromUser();
+        /*Cursor cursor = dbHelper.getDataFromUser();
     boolean flag = false;
     cursor.moveToFirst();
         String Email = UsernameEt.getText().toString();
@@ -59,10 +59,10 @@ private void performLogin() {
         do {
             String email = cursor.getString(1);
             String password = cursor.getString(7);
-            if(Email.equalsIgnoreCase(email) && Password.equalsIgnoreCase(password)) {
+            if(Email.equalsIgnoreCase(email) && Password.equalsIgnoreCase(password)) {*/
                 Intent intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
-                flag = true;
+                /*flag = true;
                 String name = cursor.getString(2);
 
                 SharedPreferences sharedPreferences = getSharedPreferences("DIR", Context.MODE_PRIVATE);
@@ -74,7 +74,6 @@ private void performLogin() {
         }while (cursor.moveToNext());
         if(!flag) {
             Toast.makeText(this, "Wrong Username/Password",Toast.LENGTH_LONG).show();
-        }
+        }*/
     }
 }
-

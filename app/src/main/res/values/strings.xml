@@ -6,6 +6,7 @@
     <string name="hint_1">Password</string>
     <string name="sign_up">Don\'t have an account? Register here!!</string>
     <string name="username">Username</string>
+    <string name="cnfPassword">Confirm Password</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

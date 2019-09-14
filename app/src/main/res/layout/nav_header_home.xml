@@ -25,7 +25,7 @@
         android:text="@string/auto_classic_dealership"
         android:textAllCaps="true"
         android:textColor="#00FF00"
-        android:textSize="@dimen/text_size_xxlarge"
+        android:textSize="@dimen/text_size_xlarge"
         android:textStyle="bold" />
 
 

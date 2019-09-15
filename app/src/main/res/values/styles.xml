@@ -20,7 +20,7 @@
     <style name="MyEditText" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@color/red </item>
         <item name="colorControlActivated">@color/yellow </item>
-        <item name="editTextBackground">@drawable/et_bg </item>
+        <item name="editTextBackground">"@drawable/EdittextBg"</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

@@ -39,14 +39,15 @@
             android:id="@+id/EmailTIL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
             android:layout_weight="1">
 
             <EditText
                 android:id="@+id/usernameEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:theme="@style/MyEditText"
                 android:layout_margin="@dimen/margin_xlarge"
-                android:background="@android:color/white"
                 android:hint="@string/username"
                 android:inputType="textPersonName"
                 android:padding="@dimen/padding_large"
@@ -58,14 +59,17 @@
             android:id="@+id/PasswordTIL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorPrimary"
             android:layout_weight="1">
 
             <EditText
                 android:id="@+id/passwordEt"
+                android:theme="@style/MyEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_xlarge"
-                android:background="@android:color/white"
                 android:ems="10"
                 android:hint="@string/hint_1"
                 android:inputType="textPassword"

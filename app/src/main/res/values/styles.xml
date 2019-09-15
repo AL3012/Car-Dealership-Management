@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -14,12 +14,13 @@
     </style>
 
     <style name="MyHintText" parent="TextAppearance.AppCompat.Small">
-        <item name="android:textColor">@color/pink</item>
+        <item name="android:textColor">@color/yellow</item>
     </style>
 
     <style name="MyEditText" parent="Theme.AppCompat.Light">
-        <item name="colorControlNormal">@color/indigo</item>
-        <item name="colorControlActivated">@color/pink</item>
+        <item name="colorControlNormal">@color/red </item>
+        <item name="colorControlActivated">@color/yellow </item>
+        <item name="editTextBackground">@drawable/et_bg </item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

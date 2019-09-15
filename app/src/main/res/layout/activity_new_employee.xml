@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/gradient2"
     tools:context=".NewEmployeeActivity">
 
@@ -32,6 +33,7 @@
                 android:id="@+id/FirstNameTIL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/MyHintText"
                 android:layout_weight="1">
 
                 <EditText
@@ -39,6 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:theme="@style/MyEditText"
                     android:hint="@string/first_name"
                     android:inputType="textPersonName"
                     android:padding="@dimen/padding_xlarge"
@@ -51,12 +54,14 @@
                 android:id="@+id/lastNameTIL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/MyHintText"
                 android:layout_weight="1">
 
                 <EditText
                     android:id="@+id/last_nameEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:theme="@style/MyEditText"
                     android:layout_weight="1"
                     android:hint="@string/last_name"
                     android:inputType="textPersonName"
@@ -71,6 +76,7 @@
             android:id="@+id/EmailTIL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
             android:layout_weight="1">
 
             <EditText
@@ -78,6 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
+                android:theme="@style/MyEditText"
                 android:inputType="textEmailAddress"
                 android:padding="@dimen/padding_xlarge"
                 android:singleLine="true"
@@ -89,6 +96,7 @@
             android:id="@+id/MobileTIL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
             android:layout_weight="1">
 
             <EditText
@@ -96,6 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mobile_no"
+                android:theme="@style/MyEditText"
                 android:inputType="number"
                 android:padding="@dimen/padding_xlarge"
                 android:singleLine="true"
@@ -110,6 +119,7 @@
 
             <EditText
                 android:id="@+id/dob"
+                android:theme="@style/MyEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -186,6 +196,7 @@
             android:id="@+id/UsernameTIL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
             android:layout_weight="1">
 
             <EditText
@@ -193,6 +204,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/username"
+                android:theme="@style/MyEditText"
                 android:inputType="text"
                 android:padding="@dimen/padding_xlarge"
                 android:singleLine="true"
@@ -204,6 +216,9 @@
             android:id="@+id/PasswordTIL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorAccent"
             android:layout_weight="1">
 
             <EditText
@@ -211,6 +226,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_1"
+                android:theme="@style/MyEditText"
                 android:inputType="textWebPassword"
                 android:padding="@dimen/padding_xlarge"
                 android:singleLine="true"
@@ -222,6 +238,9 @@
             android:id="@+id/CnfPasswordTIL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorAccent"
             android:layout_weight="1">
 
             <EditText
@@ -229,6 +248,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/cnfPassword"
+                android:theme="@style/MyEditText"
                 android:inputType="textWebPassword"
                 android:padding="@dimen/padding_xlarge"
                 android:singleLine="true"
@@ -247,6 +267,7 @@
                 android:id="@+id/CityTIL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/MyHintText"
                 android:layout_weight="1">
 
                 <EditText
@@ -255,6 +276,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="@string/city"
+                    android:theme="@style/MyEditText"
                     android:inputType="text"
                     android:singleLine="true"
                     android:textColor="@android:color/black"
@@ -265,6 +287,7 @@
                 android:id="@+id/PincodeTIL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/MyHintText"
                 android:layout_weight="1">
 
                 <EditText
@@ -272,6 +295,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:theme="@style/MyEditText"
                     android:hint="@string/pin_code"
                     android:inputType="number"
                     android:singleLine="true"

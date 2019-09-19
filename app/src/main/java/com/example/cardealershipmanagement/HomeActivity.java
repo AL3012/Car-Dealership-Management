@@ -79,9 +79,7 @@ public class HomeActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.view_car) {
+        if (id == R.id.view_car) {
 
         } else if (id == R.id.add_emp) {
             Intent intent = new Intent(HomeActivity.this, NewEmployeeActivity.class);

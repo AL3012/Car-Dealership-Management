@@ -38,4 +38,9 @@
     <string name="add_employee_button">Add Employee</string>
     <string name="calendar_icon">Calendar Icon</string>
     <string name="about">About</string>
+    <string name="add_buyer">Add Buyer</string>
+    <string name="position">Position</string>
+    <string name="address">Address</string>
+    <string name="aadhar_no">Aadhar Card Number</string>
+    <string name="license">Driver\'s License Number</string>
 </resources>

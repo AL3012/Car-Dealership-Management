@@ -11,7 +11,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private ImageView logo;
     ViewAnimator animator;
-    private static long Splash_Time = 3000;
+    private static long Splash_Time = 3500;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

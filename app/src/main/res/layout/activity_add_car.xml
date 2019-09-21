@@ -1,9 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
     tools:context=".AddCarActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_car"
+            android:gravity="center"
+            android:textColor="#A80021"
+            android:textSize="30sp"
+            android:textStyle="italic"
+            android:layout_margin="@dimen/margin_large"
+            android:paddingTop="@dimen/padding_xlarge"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/brandTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
+            android:textColorHint="#000000"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/brand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/MyEditText"
+                android:layout_weight="1"
+                android:hint="@string/make"
+                android:layout_marginRight="@dimen/margin_large"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:inputType="text"
+                android:background="@drawable/edit_text_bg"
+                android:padding="@dimen/padding_xlarge"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_xlarge" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/ModelTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
+            android:textColorHint="@android:color/black"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/model"
+                android:inputType="text"
+                android:padding="@dimen/padding_xlarge"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_xlarge"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/YearTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
+            android:textColorHint="@android:color/black"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/Year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/year"
+                android:inputType="number"
+                android:padding="@dimen/padding_xlarge"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_xlarge"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/ColorTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
+            android:textColorHint="@android:color/black"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/color"
+                android:inputType="text"
+                android:padding="@dimen/padding_xlarge"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_xlarge"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/VinTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
+            android:textColorHint="@android:color/black"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/Vin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/vin"
+                android:inputType="text"
+                android:padding="@dimen/padding_xlarge"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_xlarge"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/TypeTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
+            android:textColorHint="@android:color/black"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/type"
+                android:inputType="text"
+                android:padding="@dimen/padding_xlarge"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_xlarge"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/statusTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
+            android:textColorHint="@android:color/black"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/status"
+                android:inputType="text"
+                android:padding="@dimen/padding_xlarge"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_xlarge"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/BuyPriceTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
+            android:textColorHint="@android:color/black"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/BuyPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:background="@drawable/edit_text_bg"
+                android:inputType="numberDecimal"
+                android:text="@string/buy_price"
+                android:padding="@dimen/padding_xlarge"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_xlarge"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/SellPriceTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyHintText"
+            android:textColorHint="@android:color/black"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/SellPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:background="@drawable/edit_text_bg"
+                android:inputType="numberDecimal"
+                android:text="@string/sell_price"
+                android:padding="@dimen/padding_xlarge"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_xlarge"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/RegisterBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xlarge"
+            android:layout_marginLeft="@dimen/margin_xxxlarge"
+            android:layout_marginRight="@dimen/margin_xxxlarge"
+            android:background="@drawable/buttonstyle"
+            android:padding="@dimen/padding_xlarge"
+            android:text="@string/add_car"
+            android:textColor="#000000"
+            android:textSize="@dimen/text_size_xxlarge" />
+    </LinearLayout>
+</ScrollView>

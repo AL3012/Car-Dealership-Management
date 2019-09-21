@@ -64,12 +64,13 @@ public class HomeActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        }
-        else if (id == R.id.logout) {
+        } else if (id == R.id.logout) {
             Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
             startActivity(intent);
+        } else if (id == R.id.about) {
+            Intent intent = new Intent(HomeActivity.this, AboutActivity.class);
+            startActivity(intent);
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -84,15 +85,14 @@ public class HomeActivity extends AppCompatActivity
         } else if (id == R.id.add_emp) {
             Intent intent = new Intent(HomeActivity.this, NewEmployeeActivity.class);
             startActivity(intent);
-
         } else if (id == R.id.add_car) {
-
+            Intent intent = new Intent(HomeActivity.this, AddCarActivity.class);
+            startActivity(intent);
         } else if (id == R.id.update_car) {
 
         } else if (id == R.id.add_buyer) {
             Intent intent = new Intent(HomeActivity.this, AddBuyerActivity.class);
             startActivity(intent);
-
         } else if (id == R.id.sales_report) {
 
         }

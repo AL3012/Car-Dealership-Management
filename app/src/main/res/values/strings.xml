@@ -43,4 +43,14 @@
     <string name="address">Address</string>
     <string name="aadhar_no">Aadhar Card Number</string>
     <string name="license">Driver\'s License Number</string>
+    <string name="make">Car Make</string>
+    <string name="model">Model</string>
+    <string name="year">Year</string>
+    <string name="color">Color</string>
+    <string name="vin">VIN</string>
+    <string name="type">Type</string>
+    <string name="status">Status</string>
+    <string name="buy_price">Buying Price</string>
+    <string name="sell_price">Selling Price</string>
+    <string name="about_app">This Car Dealership Management app is created by Aay Gupta and Aarushi Ghadiya.</string>
 </resources>

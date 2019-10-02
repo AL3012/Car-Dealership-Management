@@ -52,5 +52,7 @@
     <string name="status">Status</string>
     <string name="buy_price">Buying Price</string>
     <string name="sell_price">Selling Price</string>
-    <string name="about_app">This Car Dealership Management app is created by Aay Gupta and Aarushi Ghadiya.</string>
+    <string name="about_app">This Car Dealership Management app is created by Anay Gupta and Aarushi Ghadiya.</string>
+    <string name="change_password">Change Password</string>
+    <string name="search_hint">Enter Make or Model or Color</string>
 </resources>

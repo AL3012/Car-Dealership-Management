@@ -9,22 +9,45 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".SearchActivity"></activity>
+
+        <activity android:name=".AboutActivity" />
+
         <activity android:name=".AddCarActivity" />
+
         <activity android:name=".AddBuyerActivity">
+
+        </activity>
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SplashActivity" />
         <activity android:name=".NewEmployeeActivity" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".LoginActivity" />
+        <provider
+            android:name=".util.GenericFileProvider"
+            android:authorities="${applicationId}.my.package.name.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+        <!--<receiver
+            android:name=".receiver.AlarmReceiver"
+            android:process=":remote" />-->
     </application>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

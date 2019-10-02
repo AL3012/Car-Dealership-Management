@@ -62,7 +62,7 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.change_password) {
             return true;
         } else if (id == R.id.logout) {
             Intent intent = new Intent(HomeActivity.this, LoginActivity.class);

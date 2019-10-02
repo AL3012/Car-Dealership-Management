@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText UsernameEt, PasswordEt;
-    private TextView forgot, register;
+    private TextView forgot;
     /*DBHelper dbHelper;*/
     private Button loginBtn;
     @Override

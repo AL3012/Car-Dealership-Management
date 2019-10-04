@@ -7,9 +7,17 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+
+import com.example.cardealershipmanagement.Adapters.MyAdapter;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -19,7 +27,23 @@ public class HomeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayout.VERTICAL, false));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+
+        ArrayList<String> strings = new ArrayList<>();
+        MyAdapter myAdapter = new MyAdapter(this, strings);
+        recyclerView.setAdapter(myAdapter);
+
+        strings.add("Car 1");
+        strings.add("Car 2");
+        strings.add("Car 3");
+        strings.add("Car 4");
+        strings.add("Car 5");
+        strings.add("Car 6");
+
+        //setSupportActionBar(toolbar);
         /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -55,4 +55,6 @@
     <string name="about_app">This Car Dealership Management app is created by Anay Gupta and Aarushi Ghadiya.</string>
     <string name="change_password">Change Password</string>
     <string name="search_hint">Enter Make or Model or Color</string>
+    <string name="owner_name">Owner Name</string>
+    <string name="see_details">See Details</string>
 </resources>

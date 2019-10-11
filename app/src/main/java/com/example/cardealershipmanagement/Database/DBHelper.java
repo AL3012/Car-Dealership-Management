@@ -27,6 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         new LoginTable(sqLiteDatabase);
+        new EmployeeTable(sqLiteDatabase);
     }
 
     @Override
@@ -45,10 +46,11 @@ public class DBHelper extends SQLiteOpenHelper {
     {
         try{
             LoginTable keyUserName = new LoginTable();
-            SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+            SQLiteDatabase sqLiteDatabase = getMyWritableDatabase();
             ContentValues contentValues = new ContentValues();
             contentValues.put(keyUserName.getUsername(), loginTable.getUsername());
             contentValues.put(keyUserName.getPassword(), loginTable.getPassword());
+
             sqLiteDatabase.insert(keyUserName.getTableName(), null, contentValues);
             return true;
         }catch (Exception e){
@@ -57,10 +59,35 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Cursor getLoginData() {
+    /*public Cursor getLoginData() {
         SQLiteDatabase sqLiteDatabase = getMyWritableDatabase();
         LoginTable loginTable = new LoginTable();
 
         return sqLiteDatabase.rawQuery("select * from "+loginTable.getTableName()+";", null);
+    }*/
+
+    public boolean addEmployeeData (EmployeeTable employeeTable){
+        try {
+            EmployeeTable keyEmployee = new EmployeeTable();
+            SQLiteDatabase sqLiteDatabase = getMyWritableDatabase();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(keyEmployee.getFname(), employeeTable.getFname());
+            contentValues.put(keyEmployee.getLname(), employeeTable.getLname());
+            contentValues.put(keyEmployee.getEmail(), employeeTable.getEmail());
+            contentValues.put(keyEmployee.getMobile(), employeeTable.getMobile());
+            contentValues.put(keyEmployee.getDob(), employeeTable.getDob());
+            contentValues.put(keyEmployee.getPosition(), employeeTable.getPosition());
+            contentValues.put(keyEmployee.getGender(), employeeTable.getGender());
+            contentValues.put(keyEmployee.getCity(), employeeTable.getCity());
+            contentValues.put(keyEmployee.getPincode(), employeeTable.getPincode());
+            contentValues.put(keyEmployee.getUsername(), employeeTable.getUsername());
+            contentValues.put(keyEmployee.getPassword(), employeeTable.getPassword());
+
+            sqLiteDatabase.insert(keyEmployee.getTableName(), null, contentValues);
+            return true;
+        }catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

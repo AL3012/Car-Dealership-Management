@@ -325,7 +325,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/RegisterBtn"
+            android:id="@+id/AddBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_xlarge"

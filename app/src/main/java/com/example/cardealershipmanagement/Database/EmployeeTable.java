@@ -4,7 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class EmployeeTable {
     private String tableName = "EmployeeTable";
-    private String id;
+    private String id = "id";
     private String fname = "fname";
     private String lname = "lname";
     private String email = "email";
@@ -20,9 +20,7 @@ public class EmployeeTable {
     public EmployeeTable() {
     }
 
-    public EmployeeTable(String tableName, String id, String fname, String lname, String email, String mobile, String dob, String position, String gender, String city, String pincode, String username, String password) {
-        this.tableName = tableName;
-        this.id = id;
+    public EmployeeTable(String fname, String lname, String email, String mobile, String dob, String position, String gender, String city, String pincode, String username, String password) {
         this.fname = fname;
         this.lname = lname;
         this.email = email;
@@ -37,13 +35,18 @@ public class EmployeeTable {
     }
 
     public EmployeeTable(SQLiteDatabase sqLiteDatabase) {
-        String sql = "create table "+tableName+ " ("+id+"int PRIMARY KEY AUTOINCREMENT, "+
+        String sql = "create table "+tableName+ " ("+id+" integer PRIMARY KEY AUTOINCREMENT, "+
                 fname+" VARCHAR(20), " +lname+" VARCHAR(20), "+email+" varchar(100), "
                 +mobile+" int(10), " +dob+" DATE, "+position+" varchar(20), "+gender+ " varchar(8),"
                 +city+" varchar(30), "+pincode+" int(8), "+username+" varchar(20), "
                 +password+" varchar(20));";
 
         sqLiteDatabase.execSQL(sql);
+
+        String initSql = "insert into "+tableName+" values ('Anay', 'Gupta', 'guptaanay98@gmail.com', " +
+                "9907378178, '1998-12-30', 'Owner', 'Male', 'Indore', '452009', 'ShowroomAdmin', 'Admin12345')";
+
+        sqLiteDatabase.execSQL(initSql);
     }
 
     public String getTableName() {

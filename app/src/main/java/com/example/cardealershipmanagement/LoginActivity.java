@@ -37,32 +37,32 @@ public class LoginActivity extends AppCompatActivity {
                 String password = PasswordEt.getText().toString();
 
                 if (username.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Enter Username", Toast.LENGTH_LONG).show();
+                    UsernameEt.setError("Enter Username");
                 }
                 else if (password.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Enter Password", Toast.LENGTH_LONG).show();
+                    PasswordEt.setError("Enter Password");
                 }
                 else if (password.length() < 8) {
-                    Toast.makeText(LoginActivity.this, "Password must have atleast 8 characters.", Toast.LENGTH_LONG).show();
+                    PasswordEt.setError("Password must have atleast 8 characters");
                 }
 
                 else {
-                    performLogin();
+                    Login();
                 }
             }
         }
     });
 }
 
-private void performLogin() {
-        Cursor cursor = dbHelper.getLoginData();
+private void Login() {
+        Cursor cursor = dbHelper.getEmployeeData();
         boolean flag = false;
         cursor.moveToFirst();
         String Username = UsernameEt.getText().toString();
         String Password = PasswordEt.getText().toString();
         do {
-            String username = cursor.getString(1);
-            String password = cursor.getString(2);
+            String username = cursor.getString(9);
+            String password = cursor.getString(10);
             if(Username.equals(username) && Password.equals(password)) {
                 Intent intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);

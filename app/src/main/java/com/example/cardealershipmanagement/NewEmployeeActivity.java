@@ -2,6 +2,7 @@ package com.example.cardealershipmanagement;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +11,10 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.cardealershipmanagement.Database.DBHelper;
+import com.example.cardealershipmanagement.Database.EmployeeTable;
 
 import java.util.Calendar;
 
@@ -71,8 +74,10 @@ public class NewEmployeeActivity extends AppCompatActivity {
                     String mobileF = mobile.getText().toString();
                     String City = city.getText().toString();
                     String dob = dobEt.getText().toString();
+                    String Position = position.getText().toString();
                     String Pincode = pincode.getText().toString();
                     String Password = password.getText().toString();
+                    String Username = username.getText().toString();
 
                     int id = genderRb.getCheckedRadioButtonId();
                     if(id == R.id.Male) {
@@ -105,13 +110,46 @@ public class NewEmployeeActivity extends AppCompatActivity {
                     else if (City.isEmpty()) {
                         city.setError("Enter City");
                     }
+                    else if (Pincode.isEmpty() || Pincode.length()!=6 || Pincode.matches(".*\\D+.*")) {
+                        pincode.setError("Enter Valid Pincode");
+                    }
                     else if (dob.isEmpty()) {
                         dobEt.setError("Enter Date of Birth");
+                    }
+                    else if(Position.isEmpty()) {
+                        position.setError("Enter Valid Position");
+                    }
+                    else if(gender.isEmpty()) {
+                        Toast.makeText(NewEmployeeActivity.this, "Select Gender", Toast.LENGTH_LONG).show();
+                    }
+                    else if(Username.isEmpty() || Username.length()<=6){
+                        username.setError("Enter valid Username");
+                    }
+                    else {
+                        addEmployee(v);
                     }
                 }
             }
         });
     }
+
+    private void addEmployee(View v) {
+        EmployeeTable inputData = new EmployeeTable(fname.getText().toString(),lname.getText().toString(),
+                emailEt.getText().toString(), mobile.getText().toString(), dobEt.getText().toString(),
+                position.getText().toString(), gender, city.getText().toString(), pincode.getText().toString(),
+                username.getText().toString(), password.getText().toString());
+
+        if (dbHelper.addEmployeeData(inputData)) {
+            Toast.makeText(this, "Data Stored", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Employee Added Successfully!", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(this, "Data Not Stored", Toast.LENGTH_LONG).show();
+        }
+    }
+
     public void setDate(View view) {
         showDialog(999);
     }

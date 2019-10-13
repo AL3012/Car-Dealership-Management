@@ -26,8 +26,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        new LoginTable(sqLiteDatabase);
         new EmployeeTable(sqLiteDatabase);
+        new BuyerTable(sqLiteDatabase);
     }
 
     @Override
@@ -41,30 +41,6 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return myWritableDb;
     }
-
-    public boolean addLoginData(LoginTable loginTable)
-    {
-        try{
-            LoginTable keyUserName = new LoginTable();
-            SQLiteDatabase sqLiteDatabase = getMyWritableDatabase();
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(keyUserName.getUsername(), loginTable.getUsername());
-            contentValues.put(keyUserName.getPassword(), loginTable.getPassword());
-
-            sqLiteDatabase.insert(keyUserName.getTableName(), null, contentValues);
-            return true;
-        }catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    /*public Cursor getLoginData() {
-        SQLiteDatabase sqLiteDatabase = getMyWritableDatabase();
-        LoginTable loginTable = new LoginTable();
-
-        return sqLiteDatabase.rawQuery("select * from "+loginTable.getTableName()+";", null);
-    }*/
 
     public boolean addEmployeeData (EmployeeTable employeeTable){
         try {
@@ -89,5 +65,32 @@ public class DBHelper extends SQLiteOpenHelper {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public boolean addBuyerData (BuyerTable buyerTable) {
+        try{
+            BuyerTable keyBuyer = new BuyerTable();
+            SQLiteDatabase sqLiteDatabase = getMyWritableDatabase();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(keyBuyer.getFname(), buyerTable.getFname());
+            contentValues.put(keyBuyer.getLname(), buyerTable.getLname());
+            contentValues.put(keyBuyer.getGender(), buyerTable.getGender());
+            contentValues.put(keyBuyer.getAadhar_no(), buyerTable.getAadhar_no());
+            contentValues.put(keyBuyer.getAddress(), buyerTable.getAddress());
+            contentValues.put(keyBuyer.getMobile(), buyerTable.getMobile());
+            contentValues.put(keyBuyer.getLicense(), buyerTable.getLicense());
+
+            sqLiteDatabase.insert(keyBuyer.getTableName(),null,contentValues);
+            return true;
+        }catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Cursor getEmployeeData() {
+        SQLiteDatabase sqLiteDatabase = getMyWritableDatabase();
+        EmployeeTable employeeTable = new EmployeeTable();
+        return sqLiteDatabase.rawQuery("Select * from "+ employeeTable.getTableName()+";", null);
     }
 }

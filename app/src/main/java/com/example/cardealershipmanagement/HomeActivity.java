@@ -1,6 +1,7 @@
 package com.example.cardealershipmanagement;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,13 +15,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.cardealershipmanagement.Adapters.MyAdapter;
+import com.example.cardealershipmanagement.Database.CarModel;
+import com.example.cardealershipmanagement.Database.DBHelper;
 
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,29 +35,26 @@ public class HomeActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
 
+        dbHelper = DBHelper.getInstance(this);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayout.VERTICAL, false));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
 
-        ArrayList<String> strings = new ArrayList<>();
+        ArrayList<CarModel> strings = new ArrayList<>();
         MyAdapter myAdapter = new MyAdapter(this, strings);
         recyclerView.setAdapter(myAdapter);
 
-        strings.add("Car 1");
-        strings.add("Car 2");
-        strings.add("Car 3");
-        strings.add("Car 4");
-        strings.add("Car 5");
-        strings.add("Car 6");
+        Cursor cursor = dbHelper.getCar();
+        cursor.moveToFirst();
+        do {
+            strings.add(new CarModel(cursor.getString(1),
+                    cursor.getString(2), cursor.getString(3), cursor.getString(4),
+                    cursor.getString(5)));
+        } while (cursor.moveToNext());
+        Toast.makeText(this, "count = " + myAdapter.getItemCount(), Toast.LENGTH_LONG).show();
 
-        //setSupportActionBar(toolbar);
-        /*FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
+        setSupportActionBar(toolbar);
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -105,7 +108,8 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.view_car) {
-
+            Intent intent = new Intent(HomeActivity.this, SearchActivity.class);
+            startActivity(intent);
         } else if (id == R.id.add_emp) {
             Intent intent = new Intent(HomeActivity.this, NewEmployeeActivity.class);
             startActivity(intent);

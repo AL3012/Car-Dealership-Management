@@ -47,21 +47,21 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/vin"
+                    android:id="@+id/yearTV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_large"
-                    android:text="@string/vin"
+                    android:text="@string/year"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/text_size_xlarge"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/owner"
+                    android:id="@+id/vin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_large"
-                    android:text="@string/owner_name"
+                    android:text="@string/vin"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/text_size_xlarge"
                     android:textStyle="bold" />
@@ -87,7 +87,7 @@
                 android:layout_marginTop="90sp"
                 android:textAlignment="center"
                 android:textSize="@dimen/text_size_large"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:padding="@dimen/padding_large"
                 android:layout_marginBottom="90sp"/>
         </LinearLayout>

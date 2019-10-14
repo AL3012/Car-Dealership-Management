@@ -22,7 +22,7 @@
     <string name="update_car_details">Update Car Details</string>
     <string name="add_car">Add Car</string>
     <string name="add_new_employee">Add New Employee</string>
-    <string name="view_car">View Car</string>
+    <string name="view_car">Search and View Car</string>
     <string name="logout">Logout</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
@@ -59,4 +59,5 @@
     <string name="owner_name">Owner Name</string>
     <string name="see_details">See Details</string>
     <string name="seating_capacity">Seating Capacity</string>
+    <string name="menu_search">Search</string>
 </resources>

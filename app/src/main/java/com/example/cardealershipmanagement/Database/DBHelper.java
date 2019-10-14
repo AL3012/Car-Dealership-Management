@@ -120,4 +120,11 @@ public class DBHelper extends SQLiteOpenHelper {
             return false;
         }
     }
+
+    public Cursor getCar() {
+        SQLiteDatabase sqLiteDatabase = getMyWritableDatabase();
+        CarTable carTable = new CarTable();
+
+        return sqLiteDatabase.rawQuery("select * from "+carTable.getTableName()+";", null);
+    }
 }

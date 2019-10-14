@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextAppearance="@style/MyHintText"
-            android:textColorHint="#000000"
+            android:textColorHint="#3A3603"
             android:layout_weight="1">
 
             <EditText
@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextAppearance="@style/MyHintText"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="#3A3603"
             android:layout_weight="1">
 
             <EditText
@@ -77,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextAppearance="@style/MyHintText"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="#3A3603"
             android:layout_weight="1">
 
             <EditText
@@ -101,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextAppearance="@style/MyHintText"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="#3A3603"
             android:layout_weight="1">
 
             <EditText
@@ -125,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextAppearance="@style/MyHintText"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="#3A3603"
             android:layout_weight="1">
 
             <EditText
@@ -149,7 +149,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextAppearance="@style/MyHintText"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="#3A3603"
             android:layout_weight="1">
 
             <EditText
@@ -173,7 +173,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextAppearance="@style/MyHintText"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="#3A3603"
             android:layout_weight="1">
 
             <EditText
@@ -197,7 +197,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextAppearance="@style/MyHintText"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="#3A3603"
             android:layout_weight="1">
 
             <EditText
@@ -221,7 +221,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextAppearance="@style/MyHintText"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="#3A3603"
             android:layout_weight="1">
 
             <EditText
@@ -232,7 +232,7 @@
                 android:layout_marginRight="@dimen/margin_large"
                 android:background="@drawable/edit_text_bg"
                 android:inputType="number"
-                android:text="@string/seating_capacity"
+                android:hint="@string/seating_capacity"
                 android:padding="@dimen/padding_xlarge"
                 android:singleLine="true"
                 android:textColor="@android:color/black"
@@ -245,7 +245,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextAppearance="@style/MyHintText"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="#3A3603"
             android:layout_weight="1">
 
             <EditText
@@ -256,7 +256,7 @@
                 android:layout_marginRight="@dimen/margin_large"
                 android:background="@drawable/edit_text_bg"
                 android:inputType="numberDecimal"
-                android:text="@string/buy_price"
+                android:hint="@string/buy_price"
                 android:padding="@dimen/padding_xlarge"
                 android:singleLine="true"
                 android:textColor="@android:color/black"
@@ -269,7 +269,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextAppearance="@style/MyHintText"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="#3A3603"
             android:layout_weight="1">
 
             <EditText
@@ -280,7 +280,7 @@
                 android:layout_marginRight="@dimen/margin_large"
                 android:background="@drawable/edit_text_bg"
                 android:inputType="numberDecimal"
-                android:text="@string/sell_price"
+                android:hint="@string/sell_price"
                 android:padding="@dimen/padding_xlarge"
                 android:singleLine="true"
                 android:textColor="@android:color/black"

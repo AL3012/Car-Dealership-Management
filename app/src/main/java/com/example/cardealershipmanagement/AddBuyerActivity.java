@@ -61,7 +61,7 @@ public class AddBuyerActivity extends AppCompatActivity {
                 else if (nameL.isEmpty()) {
                     lname.setError("Enter Last Name");
                 }
-                else if (mobileF.isEmpty() || mobileF.length()!=10 || mobileF.matches(".*\\D+.*")) {
+                else if (mobileF.length() != 10 || mobileF.matches(".*\\D+.*")) {
                     mobile.setError("Enter Valid Mobile No.");
                 }
                 else if(Address.isEmpty()) {

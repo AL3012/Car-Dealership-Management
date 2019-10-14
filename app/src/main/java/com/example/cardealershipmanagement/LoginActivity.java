@@ -61,13 +61,13 @@ private void Login() {
         String Username = UsernameEt.getText().toString();
         String Password = PasswordEt.getText().toString();
         do {
-            String username = cursor.getString(9);
-            String password = cursor.getString(10);
-            if(Username.equals(username) && Password.equals(password)) {
+            String username = cursor.getString(10);
+            String password = cursor.getString(11);
+            if(Username.equalsIgnoreCase(username) && Password.equalsIgnoreCase(password)) {
                 Intent intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
                 flag = true;
-                String name = cursor.getString(2);
+                String name = cursor.getString(1);
 
                 SharedPreferences sharedPreferences = getSharedPreferences("DIR", Context.MODE_PRIVATE);
                 sharedPreferences.edit().putString("SKEY_username",""+UsernameEt.getText().toString()).commit();

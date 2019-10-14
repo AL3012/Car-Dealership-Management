@@ -94,13 +94,10 @@ public class NewEmployeeActivity extends AppCompatActivity {
                     else if (nameL.isEmpty()) {
                         lname.setError("Enter Last Name");
                     }
-                    else if (!email.contains("@") || !email.contains(".") ||
-                            email.lastIndexOf('.')<email.indexOf('@') ||
-                            email.lastIndexOf('.')==email.length()-1 ||
-                            email.lastIndexOf('.') - email.indexOf('@') <=2 || email.isEmpty()) {
+                    else if (!email.contains("@") || !email.contains(".") || email.lastIndexOf('.') < email.indexOf('@') || email.lastIndexOf('.') == email.length() - 1 || email.lastIndexOf('.') - email.indexOf('@') <= 2) {
                         emailEt.setError("Enter Valid Email");
                     }
-                    else if (mobileF.isEmpty() || mobileF.length()!=10 || mobileF.matches(".*\\D+.*")) {
+                    else if (mobileF.length() != 10 || mobileF.matches(".*\\D+.*")) {
                         mobile.setError("Enter Valid Mobile No.");
                     }
                     else if (!Password.matches(".*\\d+.*") || !Password.matches(".*[a-zA-Z].*")
@@ -110,7 +107,7 @@ public class NewEmployeeActivity extends AppCompatActivity {
                     else if (City.isEmpty()) {
                         city.setError("Enter City");
                     }
-                    else if (Pincode.isEmpty() || Pincode.length()!=6 || Pincode.matches(".*\\D+.*")) {
+                    else if (Pincode.length() != 6 || Pincode.matches(".*\\D+.*")) {
                         pincode.setError("Enter Valid Pincode");
                     }
                     else if (dob.isEmpty()) {

@@ -41,11 +41,12 @@ public class EmployeeTable {
                 +city+" varchar(30), "+pincode+" int(8), "+username+" varchar(20), "
                 +password+" varchar(20));";
 
+        String initSql = "insert into "+tableName+"( " +id+", "+fname+ ", " +lname+ ", " +email+ ", " +mobile+
+                ", " +dob+ ", " +position+", "+gender+", "+city+", "+pincode+", "+username+", "+password+
+                ") values (1, 'Anay', 'Gupta', 'guptaanay98@gmail.com', 9907378178, '1998-12-30', 'Owner'," +
+                " 'Male', 'Indore', '452009', 'ShowroomAdmin', 'Admin12345')";
+
         sqLiteDatabase.execSQL(sql);
-
-        String initSql = "insert into "+tableName+" values ('Anay', 'Gupta', 'guptaanay98@gmail.com', " +
-                "9907378178, '1998-12-30', 'Owner', 'Male', 'Indore', '452009', 'ShowroomAdmin', 'Admin12345')";
-
         sqLiteDatabase.execSQL(initSql);
     }
 

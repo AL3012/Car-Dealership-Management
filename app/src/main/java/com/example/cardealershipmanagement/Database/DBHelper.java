@@ -2,6 +2,7 @@ package com.example.cardealershipmanagement.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.CharArrayBuffer;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -28,6 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         new EmployeeTable(sqLiteDatabase);
         new BuyerTable(sqLiteDatabase);
+        new CarTable(sqLiteDatabase);
     }
 
     @Override
@@ -92,5 +94,30 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = getMyWritableDatabase();
         EmployeeTable employeeTable = new EmployeeTable();
         return sqLiteDatabase.rawQuery("Select * from "+ employeeTable.getTableName()+";", null);
+    }
+
+    public boolean addCarData(CarTable carTable) {
+        try {
+            CarTable keyCar = new CarTable();
+            SQLiteDatabase sqLiteDatabase = getMyWritableDatabase();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(keyCar.getMake(), carTable.getMake());
+            contentValues.put(keyCar.getModel(), carTable.getModel());
+            contentValues.put(keyCar.getBuyingPrice(), carTable.getBuyingPrice());
+            contentValues.put(keyCar.getSeats(), carTable.getSeats());
+            contentValues.put(keyCar.getSellingPrice(), carTable.getSellingPrice());
+            contentValues.put(keyCar.getYear(), carTable.getYear());
+            contentValues.put(keyCar.getStatus(), carTable.getStatus());
+            contentValues.put(keyCar.getbType(), carTable.getbType());
+            contentValues.put(keyCar.getfType(), carTable.getfType());
+            contentValues.put(keyCar.getVin(), carTable.getVin());
+            contentValues.put(keyCar.getColor(), carTable.getColor());
+
+            sqLiteDatabase.insert(keyCar.getTableName(), null, contentValues);
+            return true;
+        } catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }

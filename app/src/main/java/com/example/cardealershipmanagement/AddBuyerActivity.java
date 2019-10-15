@@ -14,7 +14,7 @@ import com.example.cardealershipmanagement.Database.DBHelper;
 
 public class AddBuyerActivity extends AppCompatActivity {
 
-    private EditText fname, lname, mobile, address, aadhar_no, license_no;
+    private EditText fname, lname, mobile, address, aadhar_no, license_no, vinEt;
     private RadioGroup genderRb;
     private Button buyerBtn;
     DBHelper dbHelper;
@@ -32,6 +32,7 @@ public class AddBuyerActivity extends AppCompatActivity {
         aadhar_no = findViewById(R.id.aadharEt);
         license_no = findViewById(R.id.licenseEt);
         genderRb = findViewById(R.id.Gender);
+        vinEt = findViewById(R.id.vinEt);
         buyerBtn = findViewById(R.id.BuyerBtn);
 
         dbHelper = DBHelper.getInstance(this);
@@ -45,6 +46,7 @@ public class AddBuyerActivity extends AppCompatActivity {
                 String Address = address.getText().toString();
                 String aadhar = aadhar_no.getText().toString();
                 String license = license_no.getText().toString();
+                String VIN = vinEt.getText().toString();
 
                 int id = genderRb.getCheckedRadioButtonId();
                 if(id == R.id.Male){
@@ -76,6 +78,9 @@ public class AddBuyerActivity extends AppCompatActivity {
                 else if(license.isEmpty()) {
                     license_no.setError("Licencse Number has to entered");
                 }
+                else if(VIN.isEmpty()) {
+                    vinEt.setError("Enter VIN of Vehicle purchased");
+                }
                 else{
                     addBuyer(v);
                 }
@@ -87,7 +92,7 @@ public class AddBuyerActivity extends AppCompatActivity {
     private void addBuyer(View v) {
         BuyerTable inputData = new BuyerTable(fname.getText().toString(), lname.getText().toString(),
                 address.getText().toString(), mobile.getText().toString(), gender,
-                aadhar_no.getText().toString(), license_no.getText().toString());
+                aadhar_no.getText().toString(), license_no.getText().toString(), vinEt.getText().toString());
 
         if (dbHelper.addBuyerData(inputData)) {
             Toast.makeText(this, "Data Stored", Toast.LENGTH_LONG).show();

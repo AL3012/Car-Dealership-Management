@@ -1,7 +1,12 @@
 package com.example.cardealershipmanagement;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
+import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -13,10 +18,16 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.cardealershipmanagement.Adapters.CarAdapter;
+import com.example.cardealershipmanagement.Database.BuyerTable;
 import com.example.cardealershipmanagement.Database.CarModel;
 import com.example.cardealershipmanagement.Database.DBHelper;
+import com.example.cardealershipmanagement.pdf.MyPdf;
 
+import java.io.File;
 import java.util.ArrayList;
+
+import static android.os.Build.VERSION_CODES.KITKAT;
+import static android.os.Build.VERSION_CODES.M;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -33,14 +44,14 @@ public class SearchActivity extends AppCompatActivity {
         SearchView searchView = findViewById(R.id.search_view);
         recyclerView = findViewById(R.id.recycler_view);
         FloatingActionButton floatingActionButton = findViewById(R.id.button);
-/*
+        
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 callPdf();
             }
         });
-*/
+        
         dbHelper = DBHelper.getInstance(this);
         cursor = dbHelper.getCar();
 
@@ -86,5 +97,41 @@ public class SearchActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void callPdf() {
+        String fileName = System.currentTimeMillis() + "sales.pdf";
+        new MyPdf().write(this, fileName, carTable);
+
+        Intent pdfOpenIntent = new Intent(Intent.ACTION_VIEW);
+
+        try {
+            if (Build.VERSION.SDK_INT > KITKAT) {
+                try {
+                    Uri photoURI = FileProvider.getUriForFile(
+                            this,
+                            getApplicationContext().getPackageName() + ".my.package.name.provider",
+                            new File("/sdcard/Download/" + fileName)
+                    );
+                    pdfOpenIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    pdfOpenIntent.setDataAndType(
+                            photoURI,
+                            "application/pdf"
+                    );
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            } else {
+                pdfOpenIntent.setDataAndType(
+                        Uri.parse("file://" + "/sdcard/Download/" + "/" + fileName),
+                        "application/pdf"
+                );
+
+            }
+            startActivity(pdfOpenIntent);
+        } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -20,7 +20,7 @@ import java.util.Calendar;
 
 public class NewEmployeeActivity extends AppCompatActivity {
 
-    private EditText dobEt, fname, lname, emailEt, mobile, password, city, pincode, username, position;
+    private EditText dobEt, fname, lname, emailEt, mobile, password, city, pincode, username, position, CnfPass;
     private int year, month, day;
     private RadioGroup genderRb;
     private Button EmpBtn;
@@ -38,6 +38,7 @@ public class NewEmployeeActivity extends AppCompatActivity {
         emailEt = findViewById(R.id.emailEt);
         mobile = findViewById(R.id.mobileEt);
         password = findViewById(R.id.password);
+        CnfPass = findViewById(R.id.cnfPassword);
         city = findViewById(R.id.cityEt);
         pincode = findViewById(R.id.pincodeEt);
         position = findViewById(R.id.EPost);
@@ -77,6 +78,7 @@ public class NewEmployeeActivity extends AppCompatActivity {
                     String Position = position.getText().toString();
                     String Pincode = pincode.getText().toString();
                     String Password = password.getText().toString();
+                    String CnPassword = CnfPass.getText().toString();
                     String Username = username.getText().toString();
 
                     int id = genderRb.getCheckedRadioButtonId();
@@ -103,6 +105,9 @@ public class NewEmployeeActivity extends AppCompatActivity {
                     else if (!Password.matches(".*\\d+.*") || !Password.matches(".*[a-zA-Z].*")
                             || Password.isEmpty()) {
                         password.setError("Enter Valid Password");
+                    }
+                    else if (!CnPassword.equals(Password)) {
+                        CnfPass.setError("Password does not match from above");
                     }
                     else if (City.isEmpty()) {
                         city.setError("Enter City");

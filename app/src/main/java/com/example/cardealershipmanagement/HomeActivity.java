@@ -1,9 +1,17 @@
 package com.example.cardealershipmanagement;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,6 +22,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -23,11 +32,20 @@ import com.example.cardealershipmanagement.Database.DBHelper;
 
 import java.util.ArrayList;
 
+@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     DBHelper dbHelper;
 
+    int PERMISSIONS_MULTIPLE_REQUEST = 100;
+    String[] stringsPermission = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +55,15 @@ public class HomeActivity extends AppCompatActivity
 
         dbHelper = DBHelper.getInstance(this);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayout.VERTICAL, false));
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if(checkPermission()) {
+                recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayout.VERTICAL, false));
+                recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+            }
+        } else {
+            recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayout.VERTICAL, false));
+            recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+        }
 
         ArrayList<CarModel> strings = new ArrayList<>();
         MyAdapter myAdapter = new MyAdapter(this, strings);
@@ -128,5 +153,74 @@ public class HomeActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private boolean checkPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) +
+                ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) +
+                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(
+                    this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE) ||
+                    ActivityCompat.shouldShowRequestPermissionRationale(
+                            this, Manifest.permission.CAMERA) ||
+                    ActivityCompat.shouldShowRequestPermissionRationale(
+                            this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+                Snackbar.make(
+                        this.findViewById(android.R.id.content),
+                        "Please Grant Permissions to  Application for using camera and gallery",
+                        Snackbar.LENGTH_INDEFINITE
+                ).setAction("ENABLE", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                requestPermissions(stringsPermission, PERMISSIONS_MULTIPLE_REQUEST);
+                            }
+                        }
+                ).show();
+            }
+            else {
+                requestPermissions(stringsPermission, PERMISSIONS_MULTIPLE_REQUEST);
+            }
+        }
+        else {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 100) {
+            boolean cameraPermission = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+            boolean readExternalFile = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+            boolean writeExternalFile = grantResults[2] == PackageManager.PERMISSION_GRANTED;
+
+            if (cameraPermission && readExternalFile && writeExternalFile) {
+                /* if (isFromCamera) {
+                    cameraImageCall(activity!!)
+                } else if (isFromGallery) {
+                    galleryImageCall(activity!!)
+                }*/
+            } else {
+                Snackbar.make(
+                        getWindow().getDecorView(),
+                        "Please Grant Permissions to work with camera and gallery.",
+                        Snackbar.LENGTH_INDEFINITE
+                ).setAction("ENABLE",
+                        new View.OnClickListener() {
+                            @RequiresApi(api = Build.VERSION_CODES.M)
+                            @Override
+                            public void onClick(View view) {
+                                requestPermissions(
+                                        stringsPermission, PERMISSIONS_MULTIPLE_REQUEST);
+                            }
+
+                        }).show();
+            }
+        }
     }
 }

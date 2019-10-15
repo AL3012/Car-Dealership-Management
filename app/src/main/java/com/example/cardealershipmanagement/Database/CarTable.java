@@ -35,14 +35,17 @@ public class CarTable {
     }
 
     public CarTable(SQLiteDatabase sqLiteDatabase){
-        String sql = "create table "+tableName+"( "+id+" integer PRIMARY KEY AUTOINCREMENT, "+make+
-                " varchar(20), "+model+" varchar(20), "+year+" int(4), "+color+" varchar(10), "+vin+
-                " varchar(20), "+bType+" varchar(10), "+status+" varchar(25), "+buyingPrice+
-                " int(10), "+sellingPrice+" int(10), "+seats+" int(2), "+fType+" varchar(10));";
+
+        BuyerTable buyerTable = new BuyerTable();
+        String sql = "create table "+tableName+"( "+id+" integer, "+make+ " varchar(20), "+model+
+                " varchar(20), "+year+" int(4), "+color+" varchar(10), "+vin+ " varchar(20), "+bType+
+                " varchar(10), "+status+" varchar(25), "+buyingPrice+ " int(10), "+sellingPrice+
+                " int(10), "+seats+" int(2), "+fType+" varchar(10), FOREIGN KEY ("+id+") REFERENCES "+
+                buyerTable.getTableName()+"("+ buyerTable.getId() +") );";
 
         String initSql = "insert into "+tableName+"("+make+", "+model+", "+year+", "+color+", "+vin+
                 ", "+bType+", "+status+", "+buyingPrice+", "+sellingPrice+", "+seats+", "+fType+
-                ") values ('Dodge','Challenger',1970,'Blue','4572JKAUWN129','Muscle','Unsold',1826370,2145860,2,'Gas')";
+                ") values ('Dodge','Challenger',1970,'Blue','4572JKAUWN129','Muscle','Sold',1826370,2145860,2,'Gas')";
 
         sqLiteDatabase.execSQL(sql);
         sqLiteDatabase.execSQL(initSql);

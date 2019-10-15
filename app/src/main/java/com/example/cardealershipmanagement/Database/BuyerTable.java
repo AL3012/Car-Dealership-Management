@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class BuyerTable {
     private String tableName = "BuyerTable";
     private String id = "id";
+    private String vin = "vin";
     private String fname = "fname";
     private String lname = "lname";
     private String address = "address";
@@ -16,7 +17,7 @@ public class BuyerTable {
     public BuyerTable() {
     }
 
-    public BuyerTable(String fname, String lname, String address, String mobile, String aadhar_no, String gender, String license) {
+    public BuyerTable(String fname, String lname, String address, String mobile, String aadhar_no, String gender, String license, String vin) {
         this.fname = fname;
         this.lname = lname;
         this.address = address;
@@ -24,14 +25,26 @@ public class BuyerTable {
         this.aadhar_no = aadhar_no;
         this.gender = gender;
         this.license = license;
+        this.vin = vin;
     }
 
     public BuyerTable(SQLiteDatabase sqLiteDatabase) {
+
+        CarTable carTable = new CarTable();
         String sql = "create table "+tableName+ " ("+id+" integer PRIMARY KEY AUTOINCREMENT, "
                 +fname+" VARCHAR(20), " +lname+" VARCHAR(20), "+address+" varchar(150), " +mobile+" int(10), "
-                +gender+" varchar(8), "+aadhar_no+ " int(15)," +license+" varchar(30));";
+                +gender+" varchar(8), "+aadhar_no+ " int(15)," +license+" varchar(30), "+vin+" varchar(30)," +
+                " FOREIGN KEY("+vin+") REFERENCES "+carTable.getTableName()+"("+carTable.getVin()+") );";
 
         sqLiteDatabase.execSQL(sql);
+    }
+
+    public String getVin() {
+        return vin;
+    }
+
+    public void setVin(String vin) {
+        this.vin = vin;
     }
 
     public String getTableName() {
